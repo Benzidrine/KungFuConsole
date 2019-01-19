@@ -1,0 +1,11 @@
+\\Mac\Home\Repos\KungFuConsole\KungFuConsole\obj\Debug\netcoreapp2.0\KungFuConsole.csprojAssemblyReference.cache
+\\Mac\Home\Repos\KungFuConsole\KungFuConsole\obj\Debug\netcoreapp2.0\KungFuConsole.csproj.CoreCompileInputs.cache
+\\Mac\Home\Repos\KungFuConsole\KungFuConsole\obj\Debug\netcoreapp2.0\KungFuConsole.AssemblyInfoInputs.cache
+\\Mac\Home\Repos\KungFuConsole\KungFuConsole\obj\Debug\netcoreapp2.0\KungFuConsole.AssemblyInfo.cs
+\\Mac\Home\Repos\KungFuConsole\KungFuConsole\bin\Debug\netcoreapp2.0\KungFuConsole.deps.json
+\\Mac\Home\Repos\KungFuConsole\KungFuConsole\bin\Debug\netcoreapp2.0\KungFuConsole.runtimeconfig.json
+\\Mac\Home\Repos\KungFuConsole\KungFuConsole\bin\Debug\netcoreapp2.0\KungFuConsole.runtimeconfig.dev.json
+\\Mac\Home\Repos\KungFuConsole\KungFuConsole\bin\Debug\netcoreapp2.0\KungFuConsole.dll
+\\Mac\Home\Repos\KungFuConsole\KungFuConsole\bin\Debug\netcoreapp2.0\KungFuConsole.pdb
+\\Mac\Home\Repos\KungFuConsole\KungFuConsole\obj\Debug\netcoreapp2.0\KungFuConsole.dll
+\\Mac\Home\Repos\KungFuConsole\KungFuConsole\obj\Debug\netcoreapp2.0\KungFuConsole.pdb
