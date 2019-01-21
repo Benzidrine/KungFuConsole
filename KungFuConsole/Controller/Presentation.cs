@@ -23,7 +23,16 @@ namespace KungFuConsole.Controller
                 DisplayString += "    ";
                 for (int x = 0; x <= board.Width; x++)
                 {
-                    DisplayString += ".";
+                    bool hasWritten = false;
+                    foreach (BasePiece bp in board.ListOfPieces)
+                    {
+                        if (bp.pos.X == x && bp.pos.Y == y)
+                        {
+                            DisplayString += bp.letterExpression();
+                            hasWritten = true;
+                        }
+                    }
+                    if (!hasWritten) DisplayString += ".";
                 }
                 DisplayString += "\n";
             }

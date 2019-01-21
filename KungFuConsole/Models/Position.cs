@@ -26,6 +26,6 @@ namespace KungFuConsole.Models
 
         public int X { get; set; }
         public int Y { get; set; }
-        BasePiece piece { get; set; }
+        public BasePiece piece { get; set; }
     }
 }

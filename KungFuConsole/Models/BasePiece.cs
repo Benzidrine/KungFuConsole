@@ -7,9 +7,11 @@ namespace KungFuConsole.Models
     public class BasePiece
     {
         //public enum PieceName { Pawn = 1, Bishop, Knight, Rook, Queen, King };
+        public BasePiece() { pos = new Position(0,0); Construct(); }
 
         public int ID { get; set; }
         public int Type { get; set; }
+        public enum PieceName { PlayerCharacter = 1, Puncher, Kicker, FlyKicker };
         public int Value { get; set; }
         public bool HasNotMoved { get; set; }
         public Position pos { get; set; }
@@ -20,22 +22,16 @@ namespace KungFuConsole.Models
             switch (Type)
             {
                 case 1:
-                    letter = "P";
+                    letter = "@";
                     break;
                 case 2:
-                    letter = "B";
+                    letter = "P";
                     break;
                 case 3:
-                    letter = "H";
+                    letter = "K";
                     break;
                 case 4:
-                    letter = "R";
-                    break;
-                case 5:
-                    letter = "Q";
-                    break;
-                case 6:
-                    letter = "K";
+                    letter = "F";
                     break;
             }
 
@@ -45,6 +41,10 @@ namespace KungFuConsole.Models
         public virtual bool CanMove(Board chessboard)
         {
             return false;
+        }
+
+        public virtual void Construct()
+        {
         }
 
         public virtual bool ValidMove()

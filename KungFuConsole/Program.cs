@@ -11,7 +11,9 @@ namespace KungFuConsole
             Board board = new Board();
             board.Height = 8;
             board.Width = 12;
+            board = BoardController.PlaceCharacter(board);
             Console.WriteLine(PresentationController.PresentBoard(board));
+            InputController.InputCycle(board);
             Console.ReadLine();
         }
     }
