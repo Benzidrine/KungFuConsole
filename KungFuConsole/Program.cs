@@ -8,10 +8,7 @@ namespace KungFuConsole
     {
         static void Main(string[] args)
         {
-            Board board = new Board();
-            board.Height = 8;
-            board.Width = 12;
-            board = BoardController.PlaceCharacter(board);
+            Board board = BoardController.Setup();
             Console.WriteLine(PresentationController.PresentBoard(board));
             InputController.InputCycle(board);
             Console.ReadLine();

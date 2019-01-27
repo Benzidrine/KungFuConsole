@@ -11,7 +11,7 @@ namespace KungFuConsole.Models
 
         public int ID { get; set; }
         public int Type { get; set; }
-        public enum PieceName { PlayerCharacter = 1, Puncher, Kicker, FlyKicker };
+        public enum PieceName { PlayerCharacter = 1, Puncher, Kicker, FlyKicker, Exit };
         public int Value { get; set; }
         public bool HasNotMoved { get; set; }
         public Position pos { get; set; }
