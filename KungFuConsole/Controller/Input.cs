@@ -97,7 +97,8 @@ namespace KungFuConsole.Controller
                     moveMade = true;
                     break;
             }
-            return true;
+
+            return moveMade;
         }
 
         private static string cReadLine()

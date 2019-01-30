@@ -8,6 +8,9 @@ namespace KungFuConsole.Controller
 {
     public class BoardController
     {
+        private int IDofPiece = 0;
+        private int LoopCount = 0;
+
         public static Board PositionPieceOnBoard(Board board)
         {
             foreach (Position pos in board.Squares)
@@ -45,6 +48,12 @@ namespace KungFuConsole.Controller
             return false;
         }
 
+        public static Position FindCharacterPosition(Board board)
+        {
+            Position pos = new Position(0, 0);
+            return pos;
+        }
+
         public static bool WithinBounds(Board board, Position pos)
         {
             if (pos.X < 0 || pos.X > board.Width) return false;
@@ -60,6 +69,7 @@ namespace KungFuConsole.Controller
                 if (bp.pos.X == attackTo.X && bp.pos.Y == attackTo.Y)
                 {
                     IDtoRemove = bp.ID;
+                    break;
                 }
             }
 
@@ -82,39 +92,71 @@ namespace KungFuConsole.Controller
             return false;
         }
 
-        public static Board PlaceCharacter (Board board)
+        public Board PlaceCharacter (Board board)
         {
             //Check if character exists
             if (board.ListOfPieces.Any(p => p.Type == 1)) return board;
             Models.Character c = new Models.Character();
+            c.ID = IDofPiece++;
             c.pos.X = 0;
             c.pos.Y = board.Height;
             board.ListOfPieces.Add(c);
             return board;
         }
 
-        public static Board PlaceEnemies(Board board)
+        public  Board PlaceEnemies(Board board)
         {
+            Models.Puncher p = new Models.Puncher();
+            p.ID = IDofPiece++;
+            PlaceRandom(board, p);
             return board;
         }
+
+
+        public Board PlaceRandom(Board board, BasePiece bp)
+        {
+            //Endless Loop Protection
+            if (LoopCount > 10)
+            { return board; }
+            LoopCount++;
+            Random rnd = new Random();
+            int x = rnd.Next(0, board.Width + 1);
+            int y = rnd.Next(0, board.Height + 1);
+            Position pos = new Position(x, y);
+            if (BoardController.IsOccupied(board, pos))
+            {
+                return PlaceRandom(board, bp);
+            }
+            else
+            {
+                bp.pos.X = x;
+                bp.pos.Y = y;
+                board.ListOfPieces.Add(bp);
+                LoopCount = 0;
+                return board;
+            }
+        }
+
 
 
         public static Board Setup()
         {
+            BoardController BC = new BoardController();
             Board board = new Board();
             board.Height = 8;
             board.Width = 12;
-            board = BoardController.PlaceCharacter(board);
-            board = BoardController.PlaceEnemies(board);
-            board = BoardController.PlaceExit(board);
+            board = BC.PlaceCharacter(board);
+            board = BC.PlaceEnemies(board);
+            board = BC.PlaceExit(board);
             return board;
         }
 
-        public static Board PlaceExit(Board board)
+        public Board PlaceExit(Board board)
         {
             //Check if exit exists
             if (board.ListOfPieces.Any(p => p.Type == 5)) return board;
             Models.Exit x = new Models.Exit();
+            x.ID = IDofPiece++;
             x.pos.X = board.Width;
             x.pos.Y = 0;
             board.ListOfPieces.Add(x);

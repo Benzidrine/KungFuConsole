@@ -46,6 +46,17 @@ namespace KungFuConsole.Models
         public virtual void Construct()
         {
         }
+        
+        public virtual bool ForwardMove(Board board)
+        {
+
+            return false;
+        }
+
+        public virtual bool ReverseMove(Board board)
+        {
+            return false;
+        }
 
         public virtual bool ValidMove()
         {
